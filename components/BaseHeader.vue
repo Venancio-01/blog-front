@@ -1,5 +1,5 @@
 <template>
-  <div>Base Header1</div>
+  <div>Base Header2</div>
 </template>
 
 <script lang="ts" setup></script>
