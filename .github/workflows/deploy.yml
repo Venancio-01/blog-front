@@ -5,6 +5,8 @@ name: deploy
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '.github/**'
     
 # 开始任务
 jobs:
@@ -37,6 +39,6 @@ jobs:
         pass: ${{ secrets.PASSWORD }}
         connect_timeout: 10s
         # 打包后的目录
-        local: './output/*'
+        local: './.output'
         # 服务器存放前端包的地址
         remote: /var/www/blog
