@@ -17,7 +17,6 @@ jobs:
 
     # 开始设置构建步骤
     steps:
-    - name: Checkout
     # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
     - uses: actions/checkout@v2
 
