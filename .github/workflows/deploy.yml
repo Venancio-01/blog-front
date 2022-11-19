@@ -10,17 +10,17 @@ on:
     
 # 开始任务
 jobs:
-  # 建立一个名为 build 的job
-  build:
-    # 在最新的乌班图环境进行工作
+  # 建立一个名为 build-and-deploy 的job
+  build-and-deploy:
+    # 在最新的 Ubuntu 环境进行工作
     runs-on: ubuntu-latest
 
     # 开始设置构建步骤
     steps:
+    - name: Checkout
     # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
     - uses: actions/checkout@v2
 
-    # 命名这个步骤为构建Build
     - name: Build
       # 运行 安装和打包任务
       run: npm install && npm run build
@@ -39,6 +39,6 @@ jobs:
         pass: ${{ secrets.PASSWORD }}
         connect_timeout: 10s
         # 打包后的目录
-        local: './.output'
+        local: './.output/*'
         # 服务器存放前端包的地址
-        remote: /var/www/blog
+        remote: /var/www/blog/.output
